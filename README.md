@@ -73,3 +73,46 @@ PUT a file or resource at specified URI and only there and create or replace the
 ### Maven
 ![Maven Concepts](/images/maven-concepts.png)
 
+### Maven Build Process
+```markdown
+maven build process is split into 
+1. Build Life Cycles - contains sequence of build phases
+2. Build Phases - contains sequence of build goals
+3. Build Goals
+```
+
+### Maven Build Process
+![Maven Build Process](/images/maven-build-process.png)
+
+### POM Overview
+![POM Overview](/images/pom-overview.png)
+
+### Maven Settings File
+![Maven Settings File](/images/maven-settings-file.png)
+
+### Getting Started in Eclipse
+```markdown
+1. Create your workspace
+2. File -> New -> Other -> Maven Project -> Next -> (select maven-archetype-webapp) -> Enter Group Id and Architect Id ->Finish
+	* Group Id : com.example
+	* Architect Id: pizzashoppingcart
+
+3. Create java folder in src/main folder
+
+4. Create package in java folder
+	* package : com.example
+	
+4. Run -> Run Configurations -> Maven Build -> (Right Click) New Configuration -> Name and Goals
+	* Name : pizzashoppingcart-run
+	* Goals : org-apache-tomcat.maven:tomcat7-maven-plugin:2.1:run
+	
+5. Create another configuration to clean and build the project
+	* Name : pizzashoppingcart-build
+	* Goals : clean install
+	* Profiles : jdk1.8
+	
+6. Run the pizzashoppingcart-build configuration
+```
+
+### Servlet Life Cycle
+![Servlet Life Cycle](/images/servlet-life-cycle.png)
