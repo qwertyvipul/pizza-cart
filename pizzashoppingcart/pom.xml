@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>pizzashoppingcart</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>pizzashoppingcart Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <!-- Dependencies -->
+  <dependencies>
+  
+  	<!-- Spring MVC dependency which will use the default compile time scope.
+  	These dependencies remain always the part of the application. -->
+  	<dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${org.springframework.version}</version>
+    </dependency>
+    
+    <!-- Servlet API dependency configured with provided scope as it will be
+    provided by the container. Maven will not include this in the .war file -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- jstl dependecy required at runtime. It will be included in the .war file
+    and we do not need it at compile time. -->
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>jstl</artifactId>
+    	<version>${jstl.version}</version>
+    	<scope>runtime</scope>
+    </dependency>
+    
+    <dependency>
+    	<groupId>taglibs</groupId>
+    	<artifactId>standard</artifactId>
+    	<version>${jstl.version}</version>
+    	<scope>runtime</scope>
+    </dependency>
+    
+    <!-- DB JDBC dependency with default compiled scope and will be used
+    to access databases. -->
+    <dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>${mysql.driver.version}</version>
+    </dependency>
+    
+    <!-- Apache commons FileUpload dependency used to upload files/images. -->
+    <dependency>
+    	<groupId>commons-fileupload</groupId>
+    	<artifactId>commons-fileupload</artifactId>
+    	<version>1.3.1</version>
+    </dependency>
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  <!-- BUILD SETTINGS -->
+  <build>
+  	<!-- Plugins used in build process -->
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.tomcat.maven</groupId>
+  			<artifactId>tomcat7-maven-plugin</artifactId>
+  			<version>${tomcat.plugin.version}</version>
+  			<configuration>
+  				<contextFile>webapp/META-INF/context.xml</contextFile>
+  				<port>8080</port>
+  				<server>tomcat</server>
+  				<url>http://localhost:8080/manager/text</url>
+  				<path>/pizzashoppingcart</path>
+  				<update>true</update>
+  				<additonalClasspathDirs></additonalClasspathDirs>
+  				<systemProperties></systemProperties>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  
+    <finalName>pizzashoppingcart</finalName>
+  </build>
+</project>
